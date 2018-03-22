@@ -31,7 +31,11 @@ public class CSVreader {
 		while (line !=null)
 		{
 			String[] attributes = line.split(",");
-			Book book = createBook(attributes);
+			String name = attributes[0];
+			int price = Integer.parseInt(attributes[1]);
+			String author = attributes[2];
+			
+			Book book = new Book (name, price, author);
 			list1.add(book);
 			line = br.readLine();
 		
@@ -44,15 +48,6 @@ public class CSVreader {
 		return list1;
 	}
 	
-	private static Book createBook(String [] metaData)
-	{
-		String name = metaData[0];
-		int price = Integer.parseInt(metaData[1]);
-		String author = metaData[2];
-		
-		Book book = new Book (name,price,author);
-		return book;
-		
-	}
+	
 
 }
